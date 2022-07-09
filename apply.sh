@@ -8,6 +8,7 @@ _hdr_pat = re.compile("^@@ -(\d+),?(\d+)? \+(\d+),?(\d+)? @@$")
 
 packageManagers = {
      "arch": "pacman -Sy",
+     "archarm": "pacman -Sy",
      "alpine": "apk update && apk add",
      "fedora": "dnf install -y",
      "termux": "pkg install -y",
