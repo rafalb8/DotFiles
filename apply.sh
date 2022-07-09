@@ -120,7 +120,8 @@ def createPatch():
         return
     
     # Ask if user wants to create a patch
-    if input("Create patch? [y/N] ") != "y":
+    inp = input("Create patch? [y/N] ")
+    if inp != "y" and inp != "Y":
         print("Please commit your changes")
         exit(1)
 
