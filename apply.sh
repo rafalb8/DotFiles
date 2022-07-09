@@ -39,7 +39,7 @@ def installPackages():
         exit(0)
 
     # install packages
-    print("Installing: " + " ".join(bins))
+    print("Installing: " + " ".join(bins) + "...")
 
     if os.system(packageManagers[distro] + " " + " ".join(bins)) != 0:
         print("Failed to install packages, please install manually")
@@ -50,33 +50,40 @@ def installPackages():
 def installPlugins():
     plugins = [key for key in requirements if requirements[key] != "bin" and not os.path.exists(key.replace("~", os.environ["HOME"]))]
 
-
     if len(plugins) == 0:
         return
     
     # install plugins
     for plugin in plugins:
-        print("Installing: " + plugin)
+        print("Installing: " + plugin + "...")
         os.system(requirements[plugin])
         print("Installed: " + plugin)
-    
 
 
 def apply():
     # set working directory to script location
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
+    notChanged = []
+    changed = []
+
     # iterate over dot files
     for file, locations in dotFiles.items():
         for path in locations:
             path = path.replace("~", os.environ["HOME"])
             if filecmp.cmp(file, path):
-                print("Already applied: " + file)
+                notChanged.append(path)
                 continue
 
             # copy local file to path
             shutil.copy(file, path)
-            print("Applied: " + file)
+            changed.append(path)
+    
+    # print results
+    if len(notChanged) > 0:
+        print("Not changed:\n\t" + "\n\t".join(notChanged))
+    if len(changed) > 0:
+        print("Changed:\n\t" + "\n\t".join(changed))
 
 
 # main
@@ -88,10 +95,15 @@ with open("/etc/os-release") as f:
             break
 
 # install requirements
+print("Installing requirements...")
 installPackages()
 installPlugins()
+print("All requirements installed")
+
+print("------")
 
 # apply dot files
+print("Applying dot files...")
 apply()
 
 
