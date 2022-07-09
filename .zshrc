@@ -38,7 +38,7 @@ alias ll="ls -lh"   # list
 alias la="ls -lAh"  # all files list
 
 # Arch Mirrors update
-distro=$(source /etc/os-release; echo $ID)
+distro=$(source /etc/os-release; echo ${ID_LIKE:=$ID})
 if [[ $distro == "arch" ]]; then
     alias updm-rate="sudo reflector -a 10 -c pl --sort rate --save /etc/pacman.d/mirrorlist"
     alias updm-score="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
@@ -48,3 +48,22 @@ fi
 function localip() {
 	echo $(ip route get 1.1.1.1 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
 }
+
+function help {
+    # Replace ? with --help flag
+    if [[ "$BUFFER" =~ '^\w+\?$' ]]; then
+        BUFFER="${BUFFER::-1} --help"
+    fi
+
+    # If --help flag found, pipe output through bat
+    if [[ "$BUFFER" =~ '^\w+ --help$' ]]; then
+        BUFFER="$BUFFER | bat -p -l help"
+    fi
+
+    # press enter
+    zle accept-line
+}
+
+zle -N help
+bindkey '^J' help
+bindkey '^M' help
