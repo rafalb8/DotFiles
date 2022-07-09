@@ -40,7 +40,7 @@ def getDistro():
                 return line.split("=")[1].strip()
 
 def apply_patch(file):
-    return os.popen("patch -p1 {0} {0}.patch --output -".format(file))
+    return os.popen("patch -p1 {0} {0}.patch --output -".format(file)).read()
 
 
 def installPackages():
