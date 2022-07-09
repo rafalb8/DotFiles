@@ -22,6 +22,7 @@ export CGO_ENABLED=0
 
 # Use bat for man
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 # Alias definitions.
 alias gsps="git stash && git pull && git stash pop"
