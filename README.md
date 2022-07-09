@@ -1,11 +1,10 @@
 # DotFiles
 
+# Installation
+    git clone https://github.com/rafalb8/DotFiles.git ~/.dotfiles
+
 ## Requirements
  - python3
-
-# Installation
-
-    git clone https://github.com/rafalb8/DotFiles.git ~/.dotfiles
 
 # Running
  Simply run `~/.dotfiles/apply.sh` script.
