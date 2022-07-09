@@ -16,6 +16,7 @@ packageManagers = {
 requirements = {
     "zsh": "bin",
     "bat": "bin",
+    "exa": "bin",
     "git": "bin",
     "curl": "bin",
     "xclip": "bin;-archarm",

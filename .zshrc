@@ -33,9 +33,9 @@ alias du="du -h"
 alias df="df -h"
 
 # ls
-alias ls="\ls --color=auto"
+alias ls="exa"
 alias ll="ls -lh"   # list
-alias la="ls -lAh"  # all files list
+alias la="ls -lah"  # all files list
 
 # Arch Mirrors update
 distro=$(source /etc/os-release; echo ${ID_LIKE:=$ID})
