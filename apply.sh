@@ -2,9 +2,6 @@
 
 import os
 import shutil
-import re
-
-_hdr_pat = re.compile("^@@ -(\d+),?(\d+)? \+(\d+),?(\d+)? @@$")
 
 packageManagers = {
      "arch": "pacman -Sy",
