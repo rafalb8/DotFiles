@@ -7,8 +7,8 @@ import shutil
 packageManagers = {
      "arch": "pacman -Sy",
      "alpine": "apk update && apk add",
-     "fedora": "dnf install",
-     "termux": "pkg install",
+     "fedora": "dnf install -y",
+     "termux": "pkg install -y",
      "ubuntu": "apt update && apt install -y",
      "debian": "apt update && apt install -y",
 }
@@ -18,7 +18,7 @@ requirements = {
     "bat": "bin",
     "git": "bin",
     "curl": "bin",
-    "~/.oh-my-zsh": 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
+    "~/.oh-my-zsh": 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended',
 }
 
 dotFiles = {
@@ -35,8 +35,8 @@ def installPackages():
     # elevate privileges if necessary
     if os.geteuid() != 0:
         print("Elevating privileges...")
-        os.system("sudo " + __file__)
-        os.exit(0)
+        os.system("sudo -E " + __file__)
+        exit(0)
 
     # install packages
     print("Installing: " + " ".join(bins))
