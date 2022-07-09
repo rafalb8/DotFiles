@@ -23,6 +23,7 @@ requirements = {
 
 dotFiles = {
     ".zshrc": ["~/.zshrc"],
+    ".gitconfig": ["~/.gitconfig"],
 }
 
 def installPackages():

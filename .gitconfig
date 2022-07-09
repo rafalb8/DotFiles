@@ -1,0 +1,26 @@
+[core]
+    editor = code --wait
+[help]
+    autoCorrect = 1
+[alias]
+    s = status
+    b = branch -avv
+    f = fetch --all --prune
+    cb = checkout -b
+    co = checkout
+
+    l = log
+    lo = log --oneline
+    lg = log --graph
+    log-graph = log --graph --all --oneline --decorate
+
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[credential]
+	helper = libsecret
