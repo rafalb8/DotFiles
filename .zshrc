@@ -51,12 +51,12 @@ function localip() {
 
 function help {
     # Replace ? with --help flag
-    if [[ "$BUFFER" =~ '^[\w ]+\?$' ]]; then
+    if [[ "$BUFFER" =~ '^(-?\w\s?)+\?$' ]]; then
         BUFFER="${BUFFER::-1} --help"
     fi
 
     # If --help flag found, pipe output through bat
-    if [[ "$BUFFER" =~ '^[\w ]+ --help$' ]]; then
+    if [[ "$BUFFER" =~ '^(-?\w\s?)+ --help$' ]]; then
         BUFFER="$BUFFER | bat -p -l help"
     fi
 
