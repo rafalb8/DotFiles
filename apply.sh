@@ -21,6 +21,7 @@ requirements = {
     "bat": "bin",
     "git": "bin",
     "curl": "bin",
+    "xclip": "bin",
     "tldr": "bin;-alpine",
     "~/.oh-my-zsh": 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended',
 }
