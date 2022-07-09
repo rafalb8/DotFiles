@@ -12,7 +12,7 @@ HIST_STAMPS="yyyy-mm-dd"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load?
-plugins=(git docker)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,6 +26,15 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Alias definitions.
 alias gsps="git stash && git pull && git stash pop"
 alias cat="bat"
+alias vi="vim"
+alias mkdir="mkdir -p"
+alias du="du -h"
+alias df="df -h"
+
+# ls
+alias ls="\ls --color=auto"
+alias ll="ls -lh"   # list
+alias la="ls -lAh"  # all files list
 
 # Arch Mirrors update
 distro=$(source /etc/os-release; echo $ID)
@@ -33,3 +42,8 @@ if [[ $distro == "arch" ]]; then
     alias updm-rate="sudo reflector -a 10 -c pl --sort rate --save /etc/pacman.d/mirrorlist"
     alias updm-score="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 fi
+
+# functions
+function localip() {
+	echo $(ip route get 1.1.1.1 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
+}
