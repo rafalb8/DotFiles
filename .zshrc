@@ -56,7 +56,7 @@ function help {
     fi
 
     # If --help flag found, pipe output through bat
-    if [[ "$BUFFER" =~ '^\w+ --help$' ]]; then
+    if [[ "$BUFFER" =~ '^[\w ]+ --help$' ]]; then
         BUFFER="$BUFFER | bat -p -l help"
     fi
 
