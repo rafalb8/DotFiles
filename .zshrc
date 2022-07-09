@@ -51,7 +51,7 @@ function localip() {
 
 function help {
     # Replace ? with --help flag
-    if [[ "$BUFFER" =~ '^\w+\?$' ]]; then
+    if [[ "$BUFFER" =~ '^[\w ]+\?$' ]]; then
         BUFFER="${BUFFER::-1} --help"
     fi
 
