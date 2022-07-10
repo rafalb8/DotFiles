@@ -4,8 +4,8 @@ import os
 import shutil
 
 packageManagers = {
-     "arch": "pacman -Sy",
-     "archarm": "pacman -Sy",
+     "arch": "pacman -Sy --noconfirm",
+     "archarm": "pacman -Sy --noconfirm",
      "alpine": "apk update && apk add",
      "fedora": "dnf install -y",
      "termux": "pkg install -y",
@@ -19,6 +19,7 @@ requirements = {
     "exa": "bin",
     "git": "bin",
     "curl": "bin",
+    "btop": "bin",
     "xclip": "bin;-archarm",
     "tldr": "bin;-alpine",
     "~/.oh-my-zsh": 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended',
