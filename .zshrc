@@ -12,7 +12,7 @@ HIST_STAMPS="yyyy-mm-dd"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load?
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose history)
 
 source $ZSH/oh-my-zsh.sh
 
