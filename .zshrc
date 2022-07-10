@@ -31,6 +31,7 @@ alias vi="vim"
 alias mkdir="mkdir -p"
 alias du="du -h"
 alias df="df -h"
+alias dmesg="dmesg | bat -l log"
 
 # ls
 alias ls="exa"
