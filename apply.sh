@@ -19,7 +19,7 @@ requirements = {
     "exa": "bin",
     "git": "bin",
     "curl": "bin",
-    "btop": "bin",
+    "btop": "bin;-fedora",
     "xclip": "bin;-archarm",
     "tldr": "bin;-alpine",
     "~/.oh-my-zsh": 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended',
