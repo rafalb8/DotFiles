@@ -19,6 +19,8 @@ requirements = {
     "exa": "bin",
     "git": "bin",
     "curl": "bin",
+    "rsync": "bin",
+    "reflector": "bin;+arch,+archarm",
     "btop": "bin;-fedora",
     "xclip": "bin;-archarm",
     "tldr": "bin;-alpine",
@@ -45,7 +47,13 @@ def apply_patch(file):
 
 def installPackages():
     # create list of packages to install
-    bins = [key for key in requirements if requirements[key].startswith("bin") and "-"+distro not in requirements[key] and not shutil.which(key)]
+    bins = [key for key in requirements if requirements[key].startswith("bin") and "+" not in requirements[key] and "-"+distro not in requirements[key] and not shutil.which(key)]
+
+    # create list of distro specific packages to install
+    distro_specific = [key for key in requirements if "+"+distro in requirements[key]]
+
+    # add distro specific packages to bins
+    bins.extend(distro_specific)
 
     if len(bins) == 0:
         return
