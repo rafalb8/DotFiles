@@ -32,7 +32,7 @@ alias mkdir="mkdir -p"
 alias du="du -h"
 alias df="df -h"
 alias dmesg="dmesg | bat -l log"
-alias fgkill="jobs -p | grep -o -E ' [0-9]+ ' | xargs -n1 pkill -SIGINT -g"
+alias fgkill="jobs -p | grep -o -E ' [0-9]+ ' | xargs -r -n1 pkill -SIGINT -g"
 
 # ls
 alias ls="exa"
